@@ -1,0 +1,42 @@
+{% extends 'Diaborg3Bundle:Base:base.html.twig' %}
+
+{% block content %}
+
+<h1>
+    <a href="/"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
+    Add Entry
+    <small class="on-right"></small>
+</h1>
+<form method="POST">
+    <fieldset>
+        <div class="grid">
+            <div class="row">
+
+
+                <div class="span4">
+                    {% include 'Diaborg3Bundle:Form:calendar.html.twig' with {'id' : 'date', 'date' : date, 'error' : errors.date} %}
+                </div>
+                <div class="span8">
+                    {% include 'Diaborg3Bundle:Form:formfield.html.twig' with {'label' : 'Hour', 'id' : 'hour', 'value' : hour, 'error' : errors.hour, 'autofocus' : true} %}
+                    {% include 'Diaborg3Bundle:Form:formfield.html.twig' with {'label' : 'Minute', 'id' : 'minute', 'value' : minute, 'error' : errors.minute, 'autofocus' : false} %}
+                    {% include 'Diaborg3Bundle:Form:formfield.html.twig' with {'label' : 'Value', 'id' : 'value', 'value' : value, 'error' : errors.value, 'autofocus' : false} %}
+                    {% include 'Diaborg3Bundle:Form:formfield.html.twig' with {'label' : 'Insulin', 'id' : 'insulin', 'value' : insulin, 'error' : errors.insulin, 'autofocus' : false} %}
+                    {% include 'Diaborg3Bundle:Form:formfield.html.twig' with {'label' : 'BE', 'id' : 'BE', 'value' : BE, 'error' : errors.BE, 'autofocus' : false} %}
+                </div>
+
+
+                <div style="margin-top: 20px">
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="span12 text-right">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+{% endblock %}

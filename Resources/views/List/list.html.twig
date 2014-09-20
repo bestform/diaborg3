@@ -1,0 +1,73 @@
+{% extends 'Diaborg3Bundle:Base:base.html.twig' %}
+
+{% block content %}
+<div class="text-center">
+    <button class="button info" onclick="$('.diaborglist').toggle();return false;">Toggle Lists</button>
+    <button class="button info" onclick="$('.diaborggraph').toggle();return false;">Toggle Graphs</button>
+    <br /><br />
+
+</div>
+
+{% for entry in entries %}
+    <table class="table striped bordered hovered bztable">
+        <thead>
+        <tr class="info">
+            <td colspan="5" class="text-bold text-shadow">{{ entry.date }}</td>
+        </tr>
+
+        {#<tr>#}
+            {#<th class="text-left"><img src="/images/glyphicons_054_clock.png" /></th>#}
+            {#<th class="text-left"><img src="/images/glyphicons_019_heart_empty.png" /></th>#}
+            {#<th class="text-left"><img src="/images/glyphicons_090_eyedropper.png" /></th>#}
+            {#<th class="text-left"><img src="/images/glyphicons_272_cake.png" /></th>#}
+            {#<th class="text-right"></th>#}
+        {#</tr>#}
+        <tr class="diaborglist">
+            <th class="text-left text-italic text-normal">Time</th>
+            <th class="text-left text-italic text-normal">Bloodsugar</th>
+            <th class="text-left text-italic text-normal">Bolus</th>
+            <th class="text-left text-italic text-normal">BU</th>
+            <th class="text-right text-italic text-normal">Edit</th>
+        </tr>
+
+        </thead>
+        <tbody class="diaborglist">
+        {% for singleentry in entry.entries %}
+            <tr class="row-{{ singleentry.key.timestamp }}">
+                <td>{{ singleentry.time }}</td>
+                <td class="right text-bold text-shadow">{{ singleentry.value }}</td>
+                <td class="right">{{ singleentry.insulin }}</td>
+                <td class="right">{{ singleentry.BE }}</td>
+                <td class="text-right">
+                    <a class="dropdown-toggle" href="#">
+                        <span class="icon-cog"></span>
+                    </a>
+                    <ul class="dropdown-menu" data-role="dropdown" style="display: none;">
+                        <li><a href="/index.php/delete?id={{ singleentry.key.timestamp }}" class="danger">Delete</a></li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br /><br />
+    <div class="diaborggraph">
+        <svg id="graph-{{ entry.id }}" ></svg>
+    </div>
+
+    <script>
+        drawGraph('#graph-{{ entry.id }}', {{ entry.bzarray|raw }}, {{ entry.insulinarray|raw }}, {{ entry.bearray|raw }});
+    </script>
+    <br /><br /><br /><br />
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

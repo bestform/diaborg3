@@ -1,0 +1,96 @@
+header {
+    height: 45px;
+    position: relative;
+}
+.container {
+    padding: 40px 40px 40px 40px;
+    width:1050px;
+}
+
+.metro .bztable, .metro .entryform, .diaborggraph {
+    width: 900px;
+    margin: auto;
+}
+
+.metro .dropdown-toggle:after {
+    content: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+/*.x.axis path {*/
+    /*display: none;*/
+/*}*/
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+.dot {
+    stroke-width: 1.5px;
+}
+
+.dot-selected {
+    fill: #4390df;
+    stroke: #ffffff;
+    stroke-width: 2.5px;
+}
+
+.areagood {
+    fill: #dff9da;
+}
+
+.axisbackground {
+    fill: #ffffff;
+}
+
+.insulin {
+    fill: #ffbf8b;
+    opacity: 0.5;
+}
+
+.insulin-selected {
+    fill: #ffbf8b;
+    opacity: 1;
+}
+
+.be {
+    fill: #ff7ceb;
+    opacity: 0.5;
+}
+
+.be-selected {
+    fill: #ff7ceb;
+    opacity: 1;
+}
+
+.markRow {
+    background-color: rgba(123, 186, 35, 0.47) !important;
+}
+
+.calendar-actions {
+    display: none;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+}
+.grid path {
+    stroke-width: 0;
+}
+
+#form_timestamp_date {
+    display:none;
+}
+
+.formpart {
+    float:left;
+    padding-right: 30px;
+}

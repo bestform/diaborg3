@@ -1,0 +1,70 @@
+{% extends 'Diaborg3Bundle:Base:base.html.twig' %}
+
+{% block content %}
+
+
+    {{ form_start(form) }}
+
+    <div class="formpart">
+        <div>
+            <label class="required">Time</label>
+            {{ form_errors(form.timestamp) }}
+            {{ form_widget(form.timestamp) }}
+        </div>
+        <div>
+            {{ form_label(form.value) }}
+            {{ form_errors(form.value) }}
+            {{ form_widget(form.value) }}
+        </div>
+
+        <div>
+            {{ form_label(form.be) }}
+            {{ form_errors(form.be) }}
+            {{ form_widget(form.be) }}
+        </div>
+
+        <div>
+            {{ form_label(form.insulin) }}
+            {{ form_errors(form.insulin) }}
+            {{ form_widget(form.insulin) }}
+        </div>
+
+
+    </div>
+    <div class="formpart">
+
+
+        <div class="calendar diaborgcalendar formright" ></div>
+
+        <script>
+            $(function(){
+                $('#form_timestamp_time_hour').focus();
+                var cal = $(".diaborgcalendar").calendar({
+                    multiSelect: false,
+                    weekStart: 1,
+                    click: function(d){
+                        var parts = d.split('-');
+                        var year = parts[0];
+                        var month = Number(parts[1]);
+                        var day = Number(parts[2]);
+                        $('#form_timestamp_date_year option[value="'+year+'"]').prop('selected', true);
+                        $('#form_timestamp_date_month option[value="'+month+'"]').prop('selected', true);
+                        $('#form_timestamp_date_day option[value="'+day+'"]').prop('selected', true);
+                    }
+                });
+                {% if form.vars.value.timestamp %}
+                console.log('setting date to');
+                var d = {{ form.vars.value.timestamp.timestamp }} * 1000;
+
+                console.log(d);
+
+                cal.calendar('setDate', d);
+                {% endif %}
+
+            })
+        </script>
+    </div>
+    <div class="clearfix"></div>
+    {{ form_end(form) }}
+
+{% endblock %}

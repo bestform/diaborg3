@@ -1,0 +1,41 @@
+<?php
+
+namespace Diaborg3Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="diaborg_entry")
+ */
+class DiaborgEntry {
+
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $timestamp;
+
+    /**
+     * @ORM\Column(type="decimal")
+     */
+    protected $value;
+
+    /**
+     * @ORM\Column(type="decimal")
+     */
+    protected $be;
+
+    /**
+     * @ORM\Column(type="decimal")
+     */
+    protected $insulin;
+
+
+} 

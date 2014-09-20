@@ -1,0 +1,21 @@
+home:
+  path: '/'
+  defaults:
+    _controller: "diaborg3.controller:indexAction"
+
+test:
+  path: '/test'
+  defaults:
+    _controller: "diaborg3.controller:testAction"
+
+list:
+  path: '/list'
+  defaults:
+    _controller: "diaborg3.controller:listAction"
+
+
+add:
+  path: '/add'
+  methods: ['GET', 'POST']
+  defaults:
+    _controller: "diaborg3.inputcontroller:addAction"

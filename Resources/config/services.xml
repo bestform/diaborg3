@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="diaborg3.controller" class="Diaborg3Bundle\Controller\Diaborg3Controller">
+            <argument type="service" id="templating" />
+            <argument type="service" id="router" />
+            <argument type="service" id="repository" />
+            <argument type="service" id="doctrine" />
+        </service>
+
+        <service id="diaborg3.inputcontroller" class="Diaborg3Bundle\Controller\InputController">
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="templating" />
+            <argument type="service" id="router" />
+            <argument type="service" id="repository" />
+        </service>
+
+        <service id="repository">
+
+        </service>
+    </services>
+
+</container>
