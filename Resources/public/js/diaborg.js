@@ -24,14 +24,14 @@ function drawCircles(svg, data, x, y) {
             d3.select(this)
                 .attr("r", 13)
                 .attr("class", "dot-selected");
-            $(".row-"+d["key"]).addClass('markRow');
+            $(".row-"+d["id"]).addClass('markRow');
         })
         .on("mouseout", function (d) {
             d3.select(this)
                 .attr("r", 6)
                 .attr("class", "dot")
             ;
-            $(".row-"+d["key"]).removeClass('markRow');
+            $(".row-"+d["id"]).removeClass('markRow');
         });
 }
 
@@ -62,12 +62,12 @@ function drawInsulin(svg, meta, x, y, h) {
         .on("mouseover", function (d) {
             d3.select(this)
                 .attr("class", "insulin-selected");
-            $(".row-"+d["key"]).addClass('markRow');
+            $(".row-"+d["id"]).addClass('markRow');
         })
         .on("mouseout", function (d) {
             d3.select(this)
                 .attr("class", "insulin");
-            $(".row-"+d["key"]).removeClass('markRow');
+            $(".row-"+d["id"]).removeClass('markRow');
         })
 
     ;
@@ -98,12 +98,12 @@ function drawBE(svg, meta, x, y, h) {
         .on("mouseover", function (d) {
             d3.select(this)
                 .attr("class", "be-selected");
-            $(".row-"+d["key"]).addClass('markRow');
+            $(".row-"+d["id"]).addClass('markRow');
         })
         .on("mouseout", function (d) {
             d3.select(this)
                 .attr("class", "be");
-            $(".row-"+d["key"]).removeClass('markRow');
+            $(".row-"+d["id"]).removeClass('markRow');
         })
     ;
 }

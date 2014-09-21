@@ -111,13 +111,13 @@ class Diaborg3Controller
             }
             foreach($dayentry['entries'] as $timeentry){
                 if(!empty($timeentry['value'])){
-                    $bzarray[] = array("date"=>$timeentry['timestamp'], "value"=>$timeentry['value'], "daystart"=> $daystart, "dayend"=> $dayend, "key" => $timeentry["key"]);
+                    $bzarray[] = array("id" => $timeentry["id"], "date"=>$timeentry['timestamp'], "value"=>$timeentry['value'], "daystart"=> $daystart, "dayend"=> $dayend, "key" => $timeentry["key"]);
                 }
                 if(!empty($timeentry['insulin'])){
-                    $insulinarray[] = array("date"=>$timeentry['timestamp'], "insulin" => $timeentry['insulin'], "key" => $timeentry["key"]);
+                    $insulinarray[] = array("id" => $timeentry["id"], "date"=>$timeentry['timestamp'], "insulin" => $timeentry['insulin'], "key" => $timeentry["key"]);
                 }
                 if(!empty($timeentry['BE'])){
-                    $bearray[] = array("date"=>$timeentry['timestamp'], "BE" => $timeentry["BE"], "key" => $timeentry["key"]);
+                    $bearray[] = array("id" => $timeentry["id"], "date"=>$timeentry['timestamp'], "BE" => $timeentry["BE"], "key" => $timeentry["key"]);
                 }
 
             }
