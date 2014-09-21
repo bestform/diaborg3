@@ -13,6 +13,11 @@ list:
   defaults:
     _controller: "diaborg3.controller:listAction"
 
+delete:
+  path: '/delete/{id}'
+  defaults:
+    _controller: "diaborg3.controller:deleteAction"
+
 
 add:
   path: '/add'

@@ -51,4 +51,8 @@ class EntryModel implements EntryModelInterface
         return $this->insulin;
     }
 
+    function getId()
+    {
+        return $this->timestamp;
+    }
 }

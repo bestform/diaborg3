@@ -78,6 +78,7 @@ class Diaborg3Controller
             }
 
             $entries[$currentDay]['entries'][] = array(
+                "id" => $entry->getId(),
                 "timestamp" =>  $timestamp,
                 "time" => date('H:i', $timestamp),
                 "value" => $entry->getValue(),
@@ -171,5 +172,11 @@ class Diaborg3Controller
         }
 
         return null;
+    }
+
+    public function deleteAction(Request $request, $id)
+    {
+        $this->repository->deleteEntry($id);
+        return new RedirectResponse($this->router->generate('list'));
     }
 } 

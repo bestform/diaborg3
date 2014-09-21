@@ -14,5 +14,6 @@ interface EntryModelInterface {
     function getValue();
     function getBE();
     function getInsulin();
+    function getId();
 
 } 

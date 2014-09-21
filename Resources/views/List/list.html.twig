@@ -43,7 +43,7 @@
                         <span class="icon-cog"></span>
                     </a>
                     <ul class="dropdown-menu" data-role="dropdown" style="display: none;">
-                        <li><a href="/index.php/delete?id={{ singleentry.key.timestamp }}" class="danger">Delete</a></li>
+                        <li><a href="{{ path('delete', {'id': singleentry.id}) }}" class="danger">Delete</a></li>
                     </ul>
                 </td>
             </tr>

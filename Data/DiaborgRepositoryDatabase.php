@@ -34,7 +34,7 @@ class DiaborgRepositoryDatabase implements DiaborgRepositoryInterface
 
     public function getEntry($id)
     {
-        return $this->getDoctrineReporistory()->findBy(array('timestamp' => $id));
+        return $this->getDoctrineReporistory()->find($id);
     }
 
     public function addEntry($timestamp, $value, $insulin, $be)
@@ -60,5 +60,6 @@ class DiaborgRepositoryDatabase implements DiaborgRepositoryInterface
     {
         $entry = $this->getEntry($id);
         $this->doctrine->getManager()->remove($entry);
+        $this->doctrine->getManager()->flush();
     }
 }
