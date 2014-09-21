@@ -2,13 +2,15 @@
 
 namespace Diaborg3Bundle\Entity;
 
+use Diaborg3Bundle\Data\EntryModelInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="diaborg_entry")
  */
-class DiaborgEntry {
+class DiaborgEntry implements EntryModelInterface
+{
 
     /**
      * @ORM\Column(type="integer")
