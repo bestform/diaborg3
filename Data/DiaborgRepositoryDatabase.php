@@ -29,7 +29,7 @@ class DiaborgRepositoryDatabase implements DiaborgRepositoryInterface
      */
     public function getList()
     {
-        return $this->getDoctrineReporistory()->findAll();
+        return $this->getDoctrineReporistory()->findBy(array(), array('timestamp' => 'ASC'));
     }
 
     public function getEntry($id)
