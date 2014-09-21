@@ -2,40 +2,8 @@
 
 {% block content %}
 
-
-    {{ form_start(form) }}
-
     <div class="formpart">
-        <div>
-            <label class="required">Time</label>
-            {{ form_errors(form.timestamp) }}
-            {{ form_widget(form.timestamp) }}
-        </div>
-        <div>
-            {{ form_label(form.value) }}
-            {{ form_errors(form.value) }}
-            {{ form_widget(form.value) }}
-        </div>
-
-        <div>
-            {{ form_label(form.be) }}
-            {{ form_errors(form.be) }}
-            {{ form_widget(form.be) }}
-        </div>
-
-        <div>
-            {{ form_label(form.insulin) }}
-            {{ form_errors(form.insulin) }}
-            {{ form_widget(form.insulin) }}
-        </div>
-
-
-    </div>
-    <div class="formpart">
-
-
         <div class="calendar diaborgcalendar formright" ></div>
-
         <script>
             $(function(){
                 $('#form_timestamp_time_hour').focus();
@@ -64,7 +32,39 @@
             })
         </script>
     </div>
+    {{ form_start(form) }}
+
+    <div class="formpart">
+        <div class="input-control" >
+            <label class="required">Time</label>
+            {{ form_errors(form.timestamp) }}
+            {{ form_widget(form.timestamp) }}
+        </div>
+        <br /><br />
+        <div class="input-control text" data-role="input-control">
+            {{ form_errors(form.value) }}
+            {{ form_widget(form.value, {'attr': {'placeholder':'Value'}}) }}
+
+        </div>
+
+        <div class="input-control text" data-role="input-control">
+            {{ form_errors(form.be) }}
+            {{ form_widget(form.be, {'attr': {'placeholder':'BU'}}) }}
+        </div>
+
+        <div class="input-control text" data-role="input-control">
+            {{ form_errors(form.insulin) }}
+            {{ form_widget(form.insulin, {'attr': {'placeholder':'Insulin'}}) }}
+        </div>
+
+
+    </div>
     <div class="clearfix"></div>
+    <br /><br />
     {{ form_end(form) }}
+
+
+
+
 
 {% endblock %}
